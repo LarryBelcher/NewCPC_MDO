@@ -1,0 +1,53 @@
+README for the CMB Climate Division temperature anomaly and percent normal precipitation data visualization
+
+
+Abstract:
+This project utilizes several python scripts to produce CONUS maps of monthly temperature anomaly and 
+percent normal precipitation from the CMB Climate Division dataset. The monthly maps are produced by 
+calling anomMainDriver.py. This script will process the most recent monthly maps (e.g., last month), 
+but is also capable of processing any month/year that a user might desire. The output from the two 
+monthly scripts (anomtavgDriver.py and anomprecipDriver.py) is set (hard coded) to place images 
+in the "Images" directory inside the directory that contains these scripts.
+
+
+Usage: ./anomMaindriver.py [args]
+
+
+
+Data Source(s): CMB @ NOAA NCDC
+Dataset: ftp://ftp.ncdc.noaa.gov/pub/data/cirs/climdiv/
+e.g., ftp://ftp.ncdc.noaa.gov/pub/data/cirs/climdiv/climdiv-pcpndv-v1.0.0-20140404
+    & ftp://ftp.ncdc.noaa.gov/pub/data/cirs/climdiv/2climdiv-norm-tmpcdv-v1.0.0-20160605
+
+
+
+
+
+Software and Dependencies:
+
+The scripts included here were built for Python 2.7. The following
+modules must exist on the system for them to perform correctly:
+
+matplotlib-1.1.1 (or higher)
+shapefile (included with pyshp)
+PIL (python imaging library, 1.1.7 or higher, PIL is the Python Imaging Library)
+mpl_toolkits.basemap
+numpy
+sys
+os
+subprocess
+time
+matplotlib.font_manager (in order to utilize the true type font MS Trebuchet, which is not
+	included as a "base" font in python*)
+	*The usage of PIL and the font manager inside matplotlib in these scripts requires
+	the ability to utilize true type fonts. As such for example on a linux box, one would
+	need to have installed the freetype-dev packages. Specifically, libfreetype6-dev needs
+	to be installed on ubuntu... 
+
+Other files in this project:
+colorbar and logo (.png and .eps) files included here are sized for each of the image 
+sizes and are used by the various python scripts that produce the reprojected images
+
+
+
+
